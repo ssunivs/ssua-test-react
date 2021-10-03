@@ -1,24 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import Responsive from "./components/common/Responsive";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Responsive style={{height: '50vh'}}>
+      <div style={{border: '1px solid grey', minHeight: '100%', minWidth: '100%'}}>BORDER_LAYOUT</div>
+    </Responsive>
   );
 }
 
