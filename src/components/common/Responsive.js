@@ -10,10 +10,10 @@ const ResponsiveBlock = styled.div`
   box-shadow: rgba(0, 0, 0, 0.04) 0 4px 16px 0;
 
   @media (${bp.medium}) {
-    width: 95vw;
+    width: calc(100% - 2rem);
   }
   @media (${bp.large}) {
-    width: 90vw;
+    max-width: 1440px;
   }
 `;
 
