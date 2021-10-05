@@ -1,10 +1,12 @@
-import Responsive from "./components/common/Responsive";
+import React from "react";
+import Main from "./pages/main";
+import {Route} from 'react-router-dom';
 
 const App = () => {
   return (
-    <Responsive style={{height: '50vh'}}>
-      <div style={{border: '1px solid grey', minHeight: '100%', minWidth: '100%'}}>BORDER_LAYOUT</div>
-    </Responsive>
+    <>
+      <Route path={'/'} exact><Main/></Route>
+    </>
   );
 }
 
