@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
 import Responsive from '../components/common/Responsive';
 import Button from '../components/common/Button';
+import * as bp from '../lib/styles/BreakPoints';
 
 const StyledImage = styled.img`
   width: 150px;
@@ -18,6 +19,14 @@ const StyledText = styled.p`
   font-weight: bold;
 `;
 
+const StyledXboxImage = styled.img`
+  width: 90%;
+
+  @media (${bp.small}) {
+    max-width: 400px;
+  }
+`;
+
 const Main = () => {
   return (
     <>
@@ -30,11 +39,7 @@ const Main = () => {
           <span>숭실대의 숨겨진 재학생 슈아</span>
           슈아가 언제 졸업할까?
         </StyledText>
-        <img
-          src="/images/xbox.png"
-          alt="xbox-image"
-          style={{ width: '400px' }}
-        />
+        <StyledXboxImage src="/images/xbox.png" alt="xbox-image" />
         <Button fullWidth blue>
           테스트 시작
         </Button>
