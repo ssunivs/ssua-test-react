@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 import * as bp from '../../lib/styles/BreakPoints';
 
 const ResponsiveBlock = styled.div`
@@ -8,17 +8,18 @@ const ResponsiveBlock = styled.div`
   padding: 10px 1rem 25px;
   margin: 0 auto 0;
   box-shadow: rgba(0, 0, 0, 0.04) 0 4px 16px 0;
+  text-align: center;
 
-  @media (${bp.medium}) {
-    width: calc(100% - 2rem);
+  @media (${bp.small}) {
+    width: 95vw;
   }
-  @media (${bp.large}) {
-    max-width: 1440px;
+  @media (${bp.medium}) {
+    max-width: 900px; //TODO: px 얼마나 잡을지
   }
 `;
 
-const Responsive = ({children, ...rest}) => {
+const Responsive = ({ children, ...rest }) => {
   return <ResponsiveBlock {...rest}>{children}</ResponsiveBlock>;
-}
+};
 
 export default Responsive;
