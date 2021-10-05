@@ -9,11 +9,11 @@ const ResponsiveBlock = styled.div`
   margin: 0 auto 0;
   box-shadow: rgba(0, 0, 0, 0.04) 0 4px 16px 0;
 
-  @media ${bp.medium} {
-    width: calc(100% - 2rem);
+  @media (${bp.medium}) {
+    width: 95vw;
   }
-  @media ${bp.large} {
-    max-width: 1440px;
+  @media (${bp.large}) {
+    width: 90vw;
   }
 `;
 
