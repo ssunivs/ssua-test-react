@@ -13,20 +13,21 @@ const StyledAnswerBlock = styled.div`
 `;
 
 const Question = ({ text, answer }) => {
+  text = text || 'QUESTION';
+  answer = answer || [{ text: 'ANSWER' }, { text: 'ANSWER' }];
+
   return (
-    Array.isArray(answer) && (
-      <div>
-        <p>{text}</p>
-        <StyledAnswerBlock>
-          <Button blue fullWidth>
-            {answer[0].text}
-          </Button>
-          <Button blue fullWidth>
-            {answer[1].text}
-          </Button>
-        </StyledAnswerBlock>
-      </div>
-    )
+    <>
+      <p>{text}</p>
+      <StyledAnswerBlock>
+        <Button blue fullWidth>
+          {answer[0]?.text ?? 'ANSWER_1'}
+        </Button>
+        <Button blue fullWidth>
+          {answer[1]?.text ?? 'ANSWER_2'}
+        </Button>
+      </StyledAnswerBlock>
+    </>
   );
 };
 

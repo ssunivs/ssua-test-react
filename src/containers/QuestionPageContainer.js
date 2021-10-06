@@ -29,16 +29,14 @@ const QuestionPageContainer = ({ location }) => {
   }, [dispatch, questionError]);
 
   return (
-    !loading && (
-      <>
-        <QuestionProgress
-          currentQuestion={currentQuestionIdx}
-          totalQuestion={list.length}
-        />
-        <Illustration />
-        <Question text={questionText} answer={answerList} />
-      </>
-    )
+    <>
+      <QuestionProgress
+        currentQuestion={currentQuestionIdx}
+        totalQuestion={list.length}
+      />
+      <Illustration />
+      <Question text={questionText} answer={answerList} />
+    </>
   );
 };
 
