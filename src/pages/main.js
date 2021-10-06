@@ -3,12 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
 import Responsive from '../components/common/Responsive';
 import Button from '../components/common/Button';
-import * as bp from '../lib/styles/BreakPoints';
-
-const StyledImage = styled.img`
-  width: 150px;
-  margin-top: 50px;
-`;
+import Logo from '../components/common/Logo';
+import Illustration from '../components/common/Illustration';
 
 const StyledText = styled.p`
   span {
@@ -19,14 +15,6 @@ const StyledText = styled.p`
   font-weight: bold;
 `;
 
-const StyledXboxImage = styled.img`
-  width: 90%;
-
-  @media (${bp.small}) {
-    max-width: 400px;
-  }
-`;
-
 const Main = () => {
   return (
     <>
@@ -34,12 +22,12 @@ const Main = () => {
         <title>슈아가 언제 졸업할까?</title>
       </Helmet>
       <Responsive>
-        <StyledImage src="/images/logo-clean.png" alt="ssuniverse-logo" />
+        <Logo />
         <StyledText>
           <span>숭실대의 숨겨진 재학생 슈아</span>
           슈아가 언제 졸업할까?
         </StyledText>
-        <StyledXboxImage src="/images/xbox.png" alt="xbox-image" />
+        <Illustration />
         <Button fullWidth blue>
           테스트 시작
         </Button>
