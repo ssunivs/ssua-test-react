@@ -59,29 +59,27 @@ const StyledButton = styled.button`
   ${buttonStyle}
 `;
 
-const StyledA = styled.a`
-  display: block;
+const StyledAnchor = styled.a`
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
   text-align: center;
   ${buttonStyle}
 `;
 
 const StyledLink = styled(Link)`
-  display: block;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
   text-align: center;
   ${buttonStyle}
 `;
 
 const Button = (props) => {
   if (props.to) {
-    return (
-      <StyledLink
-        {...props}
-        indigo={props?.indigo ? 1 : 0}
-        blue={props?.blue ? 1 : 0}
-      />
-    );
+    return <StyledLink {...props} />;
   } else if (props.href) {
-    return <StyledA {...props} />;
+    return <StyledAnchor {...props} />;
   } else {
     return <StyledButton {...props} />;
   }
