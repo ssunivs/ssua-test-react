@@ -14,8 +14,14 @@ const StyledImg = styled.img`
 `;
 
 const Illustration = ({ src }) => {
-  src = src || '/images/xbox.png';
-  return <StyledImg src={src} alt="ssua-illustration" />;
+  src = src || '/images/xbox.webp';
+  //TODO: webp 를 전달받는 경우에만 source 동작하게끔
+  return (
+    <picture>
+      <source srcSet={src.replace('.png', '.webp')} type="image/webp" />
+      <StyledImg src={src.replace('.webp', '.png')} alt="ssua-illustration" />
+    </picture>
+  );
 };
 
 export default Illustration;

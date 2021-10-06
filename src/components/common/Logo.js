@@ -8,7 +8,12 @@ const StyledImg = styled.img`
 `;
 
 const Logo = () => {
-  return <StyledImg src="/images/logo-clean.png" alt="ssuniverse-logo" />;
+  return (
+    <picture>
+      <source srcSet="/images/logo-clean.webp" type="image/webp" />
+      <StyledImg src="/images/logo-clean.png" alt="ssuniverse-logo" />
+    </picture>
+  );
 };
 
 export default Logo;
