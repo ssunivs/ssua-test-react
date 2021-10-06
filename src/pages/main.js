@@ -28,7 +28,7 @@ const Main = () => {
           슈아가 언제 졸업할까?
         </StyledText>
         <Illustration />
-        <Button fullWidth blue>
+        <Button fullWidth blue to="/enter">
           테스트 시작
         </Button>
       </Responsive>
