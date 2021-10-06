@@ -5,6 +5,8 @@ import * as bp from '../../lib/styles/BreakPoints';
 
 const StyledImg = styled.img`
   width: 90%;
+  display: block;
+  margin: auto;
 
   @media (${bp.small}) {
     max-width: 400px;
