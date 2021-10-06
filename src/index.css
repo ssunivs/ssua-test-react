@@ -10,6 +10,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-image: url("/images/blue-check-back.jpg");
 }
 
 code {
@@ -20,7 +21,6 @@ code {
 #root {
     height: 100vh;
     width: 100vw;
-    background-image: url("https://www.ssunivs.com/wp-content/uploads/2021/07/blue-check-back.jpg");
     background-position: left top;
     background-size: auto;
     background-repeat: repeat;
