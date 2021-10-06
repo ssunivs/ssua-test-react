@@ -12,19 +12,21 @@ const StyledAnswerBlock = styled.div`
   }
 `;
 
-const Question = () => {
+const Question = ({ text, answer }) => {
   return (
-    <div>
-      <p>질문 질문 질문</p>
-      <StyledAnswerBlock>
-        <Button blue fullWidth>
-          답변 1
-        </Button>
-        <Button blue fullWidth>
-          답변 2
-        </Button>
-      </StyledAnswerBlock>
-    </div>
+    Array.isArray(answer) && (
+      <div>
+        <p>{text}</p>
+        <StyledAnswerBlock>
+          <Button blue fullWidth>
+            {answer[0].text}
+          </Button>
+          <Button blue fullWidth>
+            {answer[1].text}
+          </Button>
+        </StyledAnswerBlock>
+      </div>
+    )
   );
 };
 
