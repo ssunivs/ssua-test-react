@@ -15,7 +15,7 @@ const StyledText = styled.p`
   font-weight: bold;
 `;
 
-const Main = () => {
+const MainPage = () => {
   return (
     <>
       <Helmet>
@@ -36,4 +36,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainPage;

@@ -1,16 +1,16 @@
 import React from 'react';
-import Main from './pages/main';
 import { Route } from 'react-router-dom';
-import Entrance from './pages/entrance';
+import MainPage from './pages/MainPage';
+import EntrancePage from './pages/EntrancePage';
 
 const App = () => {
   return (
     <>
       <Route path={'/'} exact>
-        <Main />
+        <MainPage />
       </Route>
       <Route path={'/enter'}>
-        <Entrance />
+        <EntrancePage />
       </Route>
     </>
   );

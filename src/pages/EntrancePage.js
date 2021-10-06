@@ -16,7 +16,7 @@ const StyledText = styled.p`
   }
 `;
 
-const Entrance = () => {
+const EntrancePage = () => {
   return (
     <>
       <Helmet>
@@ -45,4 +45,4 @@ const Entrance = () => {
   );
 };
 
-export default Entrance;
+export default EntrancePage;
