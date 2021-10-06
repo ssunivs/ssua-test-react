@@ -37,7 +37,7 @@ const EntrancePage = () => {
           있을까요?
           <br />
         </StyledText>
-        <Button blue fullWidth>
+        <Button blue fullWidth to="/question/1">
           알아보러 가기
         </Button>
       </Responsive>
