@@ -24,6 +24,7 @@ export function* questionSaga() {
 const initialState = {
   list: [],
   questionError: null,
+  answer: [],
 };
 
 const question = handleActions(
@@ -31,6 +32,7 @@ const question = handleActions(
     [GET_LIST_SUCCESS]: (state, { payload: list }) => ({
       ...state,
       list,
+      answer: list.map((iter) => ({ idx: iter.idx, isAnswered: false })),
     }),
     [GET_LIST_FAILURE]: (state, { payload: error }) => ({
       ...state,
