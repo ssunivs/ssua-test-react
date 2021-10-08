@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import EntrancePage from './pages/EntrancePage';
 import QuestionPage from './pages/QuestionPage';
+import ResultPage from './pages/ResultPage';
 
 const App = () => {
   return (
@@ -15,6 +16,9 @@ const App = () => {
       </Route>
       <Route path={'/question'}>
         <QuestionPage />
+      </Route>
+      <Route path={'/result'}>
+        <ResultPage />
       </Route>
     </>
   );

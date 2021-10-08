@@ -37,7 +37,7 @@ const QuestionPageContainer = ({ location, history }) => {
     if (next) {
       history.push(`/question/${next}`);
     } else {
-      console.log('go result');
+      history.push('/result');
     }
   };
 
@@ -55,7 +55,7 @@ const QuestionPageContainer = ({ location, history }) => {
       if (next) {
         history.replace(`/question/${next}`);
       } else {
-        console.log('go result');
+        history.push('/result');
       }
     }
   });
