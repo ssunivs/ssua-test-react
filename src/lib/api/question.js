@@ -23,8 +23,6 @@ export const result = ({ answer }) =>
         return (acc += cur.value === 'T' ? 1 : 0);
       }, 0);
 
-      console.log(count);
-
       let title;
       let description;
 
