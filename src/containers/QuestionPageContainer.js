@@ -1,24 +1,45 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import QuestionProgress from '../components/question/QuestionProgress';
 import Illustration from '../components/common/Illustration';
 import Question from '../components/question/Question';
-import { getList } from '../modules/question';
-import { withRouter } from 'react-router-dom';
+import { addAnswer, getList } from '../modules/question';
 
-const QuestionPageContainer = ({ location }) => {
+const QuestionPageContainer = ({ location, history }) => {
   const dispatch = useDispatch();
-  const { list, questionError, loading } = useSelector(
+  const { questionList, answer, questionError, loading } = useSelector(
     ({ question, loading }) => ({
-      list: question.list,
+      questionList: question.list,
+      answer: question.answer,
       questionError: question.questionError,
       loading: loading['question/GET_LIST'],
     }),
   );
-  const currentQuestionIdx = location.pathname.split('/').slice(-1)[0];
 
-  const questionText = !loading && list[currentQuestionIdx - 1]?.question;
-  const answerList = !loading && list[currentQuestionIdx - 1]?.answer;
+  const currentIdx = parseInt(location.pathname.split('/').slice(-1)[0]);
+  const next = answer.find(
+    (iter) => iter.isAnswered === false && iter.idx !== currentIdx,
+  )?.idx;
+
+  const answeredQuestionCount = answer.filter((iter) => iter.isAnswered).length;
+  const questionText = !loading && questionList[currentIdx - 1]?.question;
+  const answerList = !loading && questionList[currentIdx - 1]?.answer;
+
+  const generateAnswerHandler = (idx, value) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (1 <= idx && idx <= questionList.length) {
+      dispatch(addAnswer({ idx, value }));
+    }
+
+    if (next) {
+      history.push(`/question/${next}`);
+    } else {
+      console.log('go result');
+    }
+  };
 
   useEffect(() => {
     if (questionError) {
@@ -28,14 +49,30 @@ const QuestionPageContainer = ({ location }) => {
     dispatch(getList());
   }, [dispatch, questionError]);
 
+  useEffect(() => {
+    // prevent access to invalid question idx by checking idx when component mount
+    if (!(1 <= currentIdx && currentIdx <= questionList.length)) {
+      if (next) {
+        history.replace(`/question/${next}`);
+      } else {
+        console.log('go result');
+      }
+    }
+  });
+
   return (
     <>
       <QuestionProgress
-        currentQuestion={currentQuestionIdx}
-        totalQuestion={list.length}
+        answeredQuestionCount={answeredQuestionCount}
+        totalQuestionCount={questionList.length}
       />
       <Illustration />
-      <Question text={questionText} answer={answerList} />
+      <Question
+        idx={currentIdx}
+        text={questionText}
+        answer={answerList}
+        generateAnswerHandler={generateAnswerHandler}
+      />
     </>
   );
 };

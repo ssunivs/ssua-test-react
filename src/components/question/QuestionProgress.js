@@ -32,12 +32,12 @@ const ProgressBar = styled.div`
     `}
 `;
 
-const QuestionProgress = ({ currentQuestion, totalQuestion }) => {
-  const progressPercent = (currentQuestion / totalQuestion) * 100;
+const QuestionProgress = ({ answeredQuestionCount, totalQuestionCount }) => {
+  const progressPercent = (answeredQuestionCount / totalQuestionCount) * 100;
 
   return (
     <StyledBlock>
-      {currentQuestion}/{totalQuestion}
+      {answeredQuestionCount}/{totalQuestionCount}
       <ProgressBarWrapper>
         <ProgressBar percent={progressPercent} />
       </ProgressBarWrapper>

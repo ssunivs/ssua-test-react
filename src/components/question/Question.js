@@ -12,7 +12,7 @@ const StyledAnswerBlock = styled.div`
   }
 `;
 
-const Question = ({ text, answer }) => {
+const Question = ({ idx, text, answer, generateAnswerHandler }) => {
   text = text || 'QUESTION';
   answer = answer || [{ text: 'ANSWER' }, { text: 'ANSWER' }];
 
@@ -20,10 +20,18 @@ const Question = ({ text, answer }) => {
     <>
       <p>{text}</p>
       <StyledAnswerBlock>
-        <Button blue fullWidth>
+        <Button
+          blue
+          fullWidth
+          onClick={generateAnswerHandler(idx, answer[0]?.value)}
+        >
           {answer[0]?.text ?? 'ANSWER_1'}
         </Button>
-        <Button blue fullWidth>
+        <Button
+          blue
+          fullWidth
+          onClick={generateAnswerHandler(idx, answer[1]?.value)}
+        >
           {answer[1]?.text ?? 'ANSWER_2'}
         </Button>
       </StyledAnswerBlock>
