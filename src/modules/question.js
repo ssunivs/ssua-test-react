@@ -10,6 +10,8 @@ import createRequestSaga, {
 const [GET_LIST, GET_LIST_SUCCESS, GET_LIST_FAILURE] =
   createRequestActionTypes('question/GET_LIST');
 const ADD_ANSWER = 'question/ANSWER';
+const LOAD_ANSWER = 'question/LOAD_ANSWER';
+const UNDO_ANSWER = 'question/UNDO_ANSWER';
 
 /* DEFINE ACTION */
 export const getList = createAction(GET_LIST, () => ({}));
@@ -17,6 +19,10 @@ export const addAnswer = createAction(ADD_ANSWER, ({ idx, value }) => ({
   idx,
   value,
 }));
+export const loadAnswer = createAction(LOAD_ANSWER, ({ answer }) => ({
+  answer,
+}));
+export const undoAnswer = createAction(UNDO_ANSWER, ({ idx }) => ({ idx }));
 
 /* DEFINE SAGAS */
 const getListSaga = createRequestSaga(GET_LIST, questionAPI.list);
@@ -30,7 +36,13 @@ export function* questionSaga() {
 const initialState = {
   list: [],
   questionError: null,
-  answer: [],
+  answer: [
+    ...Array.from(Array(16).keys()).map((iter) => ({
+      idx: iter + 1,
+      isAnswered: false,
+      value: null,
+    })),
+  ],
 };
 
 const question = handleActions(
@@ -38,11 +50,6 @@ const question = handleActions(
     [GET_LIST_SUCCESS]: (state, { payload: list }) => ({
       ...state,
       list,
-      answer: list.map((iter) => ({
-        idx: iter.idx,
-        isAnswered: false,
-        value: null,
-      })),
     }),
     [GET_LIST_FAILURE]: (state, { payload: error }) => ({
       ...state,
@@ -53,8 +60,16 @@ const question = handleActions(
         draft.answer[idx - 1].isAnswered = true;
         draft.answer[idx - 1].value = value;
       }),
+    [LOAD_ANSWER]: (state, { payload: { answer } }) => ({
+      ...state,
+      answer: [...answer],
+    }),
+    [UNDO_ANSWER]: (state, { payload: { idx } }) =>
+      produce(state, (draft) => {
+        draft.answer[idx - 1].isAnswered = false;
+        draft.answer[idx - 1].value = null;
+      }),
   },
   initialState,
 );
-
 export default question;

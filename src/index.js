@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { applyMiddleware, createStore } from 'redux';
 import rootReducer, { rootSaga } from './modules';
+import { loadAnswer } from './modules/question';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -17,7 +18,18 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
 
+const loadStoreFromLocalStorage = () => {
+  let answer = localStorage.getItem('answer');
+
+  if (answer) {
+    answer = JSON.parse(answer);
+    console.log(answer);
+    store.dispatch(loadAnswer({ answer }));
+  }
+};
+
 sagaMiddleware.run(rootSaga);
+loadStoreFromLocalStorage();
 
 ReactDOM.render(
   <React.StrictMode>
