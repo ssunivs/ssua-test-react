@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import QuestionProgress from '../components/question/QuestionProgress';
 import Illustration from '../components/common/Illustration';
 import Question from '../components/question/Question';
-import { addAnswer, getList, undoAnswer } from '../modules/question';
+import { addAnswer, getList, getResult, undoAnswer } from '../modules/question';
 
 const QuestionPageContainer = ({ location, history }) => {
   const dispatch = useDispatch();
@@ -37,6 +37,7 @@ const QuestionPageContainer = ({ location, history }) => {
     if (next) {
       history.push(`/question/${next}`);
     } else {
+      dispatch(getResult({ answer }));
       history.push('/result');
     }
   };
