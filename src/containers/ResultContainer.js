@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import Logo from '../components/common/Logo';
 import Illustration from '../components/common/Illustration';
 import * as bp from '../lib/styles/BreakPoints';
-import { getResult } from '../modules/question';
+import { getResult, resetAnswer } from '../modules/question';
 import palette from '../lib/styles/palette';
 
 const StyledText = styled.p`
@@ -88,6 +88,7 @@ const ResultContainer = ({ history }) => {
     e.stopPropagation();
 
     localStorage.removeItem('answer');
+    dispatch(resetAnswer());
 
     history.push('/enter');
   };

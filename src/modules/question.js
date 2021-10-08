@@ -14,6 +14,7 @@ const [GET_RESULT, GET_RESULT_SUCCESS, GET_RESULT_FAILURE] =
 const ADD_ANSWER = 'question/ANSWER';
 const LOAD_ANSWER = 'question/LOAD_ANSWER';
 const UNDO_ANSWER = 'question/UNDO_ANSWER';
+const RESET_ANSWER = 'question/RESET_ANSWER';
 
 /* DEFINE ACTION */
 export const getList = createAction(GET_LIST, () => ({}));
@@ -26,6 +27,7 @@ export const loadAnswer = createAction(LOAD_ANSWER, ({ answer }) => ({
   answer,
 }));
 export const undoAnswer = createAction(UNDO_ANSWER, ({ idx }) => ({ idx }));
+export const resetAnswer = createAction(RESET_ANSWER, () => ({}));
 
 /* DEFINE SAGAS */
 const getListSaga = createRequestSaga(GET_LIST, questionAPI.list);
@@ -87,6 +89,10 @@ const question = handleActions(
         draft.answer[idx - 1].isAnswered = false;
         draft.answer[idx - 1].value = null;
       }),
+    [RESET_ANSWER]: (state) => ({
+      ...state,
+      answer: initialState.answer,
+    }),
   },
   initialState,
 );
