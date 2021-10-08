@@ -37,7 +37,6 @@ const QuestionPageContainer = ({ location, history }) => {
     if (next) {
       history.push(`/question/${next}`);
     } else {
-      localStorage.removeItem('answer');
       history.push('/result');
     }
   };

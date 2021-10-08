@@ -19,11 +19,9 @@ const store = createStore(
 );
 
 const loadStoreFromLocalStorage = () => {
-  let answer = localStorage.getItem('answer');
+  let answer = JSON.parse(localStorage.getItem('answer'));
 
-  if (answer) {
-    answer = JSON.parse(answer);
-    console.log(answer);
+  if (Array.isArray(answer)) {
     store.dispatch(loadAnswer({ answer }));
   }
 };
