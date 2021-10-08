@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import LogoBase64 from './LogoBase64';
 
 const StyledImg = styled.img`
   width: 150px;
@@ -9,10 +11,9 @@ const StyledImg = styled.img`
 
 const Logo = () => {
   return (
-    <picture>
-      <source srcSet="/images/logo-clean.webp" type="image/webp" />
-      <StyledImg src="/images/logo-clean.png" alt="ssuniverse-logo" />
-    </picture>
+    <Link to="/">
+      <StyledImg src={LogoBase64} alt="ssuniverse-logo" />
+    </Link>
   );
 };
 
