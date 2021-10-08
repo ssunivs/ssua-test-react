@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import QuestionProgress from '../components/question/QuestionProgress';
 import Illustration from '../components/common/Illustration';
 import Question from '../components/question/Question';
-import { addAnswer, getList } from '../modules/question';
+import { addAnswer, getList, undoAnswer } from '../modules/question';
 
 const QuestionPageContainer = ({ location, history }) => {
   const dispatch = useDispatch();
@@ -37,6 +37,7 @@ const QuestionPageContainer = ({ location, history }) => {
     if (next) {
       history.push(`/question/${next}`);
     } else {
+      localStorage.removeItem('answer');
       history.push('/result');
     }
   };
@@ -50,12 +51,19 @@ const QuestionPageContainer = ({ location, history }) => {
   }, [dispatch, questionError]);
 
   useEffect(() => {
+    localStorage.setItem('answer', JSON.stringify(answer));
+  }, [answer]);
+
+  useEffect(() => {
     // prevent access to invalid question idx by checking idx when component mount
     if (!(1 <= currentIdx && currentIdx <= questionList.length)) {
       if (next) {
         history.replace(`/question/${next}`);
-      } else {
-        history.push('/result');
+      }
+    } else {
+      // undo answer when visit already answered page
+      if (answer.find((iter) => iter.idx === currentIdx).isAnswered) {
+        dispatch(undoAnswer({ idx: currentIdx }));
       }
     }
   });
