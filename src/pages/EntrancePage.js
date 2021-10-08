@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
 import Logo from '../components/common/Logo';
@@ -17,6 +17,9 @@ const StyledText = styled.p`
 `;
 
 const EntrancePage = () => {
+  useEffect(() => {
+    localStorage.clear();
+  });
   return (
     <>
       <Helmet>
