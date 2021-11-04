@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Logo from './Logo';
 
 const FooterWrapper = styled.div`
-  height: 185px;
+  height: 150px;
   text-align: center;
 `;
 

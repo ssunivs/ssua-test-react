@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const StyledImg = styled.img`
-  width: 150px;
+  width: 90px;
   display: block;
   margin: 0 auto 0;
 `;
