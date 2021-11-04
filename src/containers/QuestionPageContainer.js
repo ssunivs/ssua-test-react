@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import QuestionProgress from '../components/question/QuestionProgress';
-import Illustration from '../components/common/Illustration';
 import Question from '../components/question/Question';
 import { addAnswer, getList, getResult, undoAnswer } from '../modules/question';
 
@@ -74,7 +73,6 @@ const QuestionPageContainer = ({ location, history }) => {
         answeredQuestionCount={answeredQuestionCount}
         totalQuestionCount={questionList.length}
       />
-      <Illustration />
       <Question
         idx={currentIdx}
         text={questionText}
