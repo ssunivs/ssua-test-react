@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 const StyledBlock = styled.div`
   margin-top: 25px;
+  font-family: 'CookieRun', sans-serif;
 `;
 
 const ProgressBarWrapper = styled.div`
