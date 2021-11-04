@@ -90,7 +90,7 @@ const ResultContainer = ({ history }) => {
     localStorage.removeItem('answer');
     dispatch(resetAnswer());
 
-    history.push('/enter');
+    history.push('/');
   };
 
   useEffect(() => {
