@@ -7,8 +7,8 @@ const HeaderWrapper = styled(Responsive)`
   background-color: #2d66bc;
   padding: 10px 0;
   min-height: 0;
-  margin: 0 auto;
-  width: 100%;
+  margin: -10px -1rem 0px;
+  width: 100vw;
 `;
 
 const StyledImage = styled.img`
