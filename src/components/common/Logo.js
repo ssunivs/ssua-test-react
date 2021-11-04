@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const StyledImg = styled.img`
   width: 90px;
@@ -9,11 +8,7 @@ const StyledImg = styled.img`
 `;
 
 const Logo = () => {
-  return (
-    <Link to="/">
-      <StyledImg src="/images/ssuniverse-logo.png" alt="ssuniverse-logo" />
-    </Link>
-  );
+  return <StyledImg src="/images/ssuniverse-logo.png" alt="ssuniverse-logo" />;
 };
 
 export default Logo;
