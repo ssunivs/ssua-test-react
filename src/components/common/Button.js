@@ -16,7 +16,7 @@ const buttonStyle = css`
   background: ${palette.blue[10]};
 
   &:hover {
-    background: ${palette.blue[6]};
+    background: ${palette.blue[9]};
   }
 
   &:disabled {
