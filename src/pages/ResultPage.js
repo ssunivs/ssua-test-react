@@ -8,7 +8,7 @@ const ResultPage = () => {
   return (
     <>
       <Helmet>
-        <title>슈아가 언제 졸업할까?</title>
+        <title>슈아는 패션왕</title>
       </Helmet>
       <Responsive>
         <Header />
