@@ -13,10 +13,10 @@ const StyledImg = styled.img`
   }
 `;
 
-const Illustration = ({ src, webpSrc }) => {
-  src = src || '/images/xbox.png';
-  webpSrc = src === '/images/xbox.png' ? '/images/xbox.webp' : webpSrc;
-
+const Illustration = ({
+  src = '/images/xbox.png',
+  webpSrc = src === '/images/xbox.png' ? '/images/xbox.webp' : false,
+}) => {
   return (
     <picture>
       {webpSrc && <source srcSet={webpSrc} type="image/webp" />}
