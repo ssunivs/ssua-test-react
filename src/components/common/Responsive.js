@@ -7,7 +7,6 @@ const ResponsiveBlock = styled.div`
   background-color: rgb(255, 255, 255);
   padding: 10px 1rem 25px;
   margin: 0 auto 0;
-  box-shadow: rgba(0, 0, 0, 0.04) 0 4px 16px 0;
   text-align: center;
 
   @media (${bp.small}) {
