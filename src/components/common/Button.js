@@ -5,7 +5,7 @@ import palette from '../../lib/styles/palette';
 
 const buttonStyle = css`
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
   padding: 0.25rem 1rem;
@@ -13,15 +13,15 @@ const buttonStyle = css`
   outline: none;
   cursor: pointer;
 
-  background: '${palette.gray[8]}';
+  background: ${palette.blue[10]};
 
   &:hover {
-    background: ${palette.gray[6]};
+    background: ${palette.blue[6]};
   }
 
   &:disabled {
-    background: ${palette.gray[3]};
-    color: ${palette.gray[5]};
+    background: ${palette.blue[3]};
+    color: ${palette.blue[5]};
     cursor: not-allowed;
   }
 
@@ -32,26 +32,6 @@ const buttonStyle = css`
       padding-bottom: 0.75rem;
       width: 100%;
       font-size: 1.125rem;
-    `}
-
-  ${(props) =>
-    props?.indigo &&
-    css`
-      background: ${palette.indigo[5]};
-
-      &:hover {
-        background: ${palette.indigo[4]};
-      }
-    `}
-
-  ${(props) =>
-    props?.blue &&
-    css`
-      background: ${palette.blue[5]};
-
-      &:hover {
-        background: ${palette.blue[4]};
-      }
     `}
 `;
 
