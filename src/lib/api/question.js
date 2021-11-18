@@ -27,14 +27,14 @@ export const result = ({ answer }) =>
       let description;
       let image;
 
-      if (count >= 15) {
+      if (count <= 1) {
         item = '과잠';
         description =
           '혹시 당신은 미니멀리스트? 학잠 과잠 지박령인 당신... \n' +
           '화려한 것보다는 내가 편한 게 최고야! 패션왕이 되려면 조금 험난한 길을 걸으셔야 할 지도 모르겠어요..! \n' +
           '편안하고 익숙한 것도 좋지만 가끔씩은 내 안의 멋을 밖으로 표현해보자구요 :)';
         image = '1-jacket.png';
-      } else if (count >= 12) {
+      } else if (count <= 3) {
         item = '안경';
         description =
           '패션에 대해 조금 더 분발해봐요^-^\n' +
@@ -42,14 +42,14 @@ export const result = ({ answer }) =>
           '그래도 슈아의 귀여운 매력이 뿜뿜하는 아이템이네요. 슈아의 매력포인트는 20% 상승했습니다~ \n' +
           '슈아의 매력을 더 올릴 수 있는 잇 아이템을 찾기 위해서 조금 더 노력해봐야겠네요!!';
         image = '2-glasses.png';
-      } else if (count >= 9) {
+      } else if (count <= 5) {
         item = '양말';
         description =
           '패션의 완성은 디테일! 양말까지 신경쓰기 시작하는 당신은 패션 새내기~ \n' +
           '전보다 센스있어졌다는 말을 종종 듣지 않나요? \n' +
           '멋진 패턴을 가진 양말을 매칭해 슈아의 캠퍼스 패션을 업그레이드 해보자구요!';
         image = '3-socks.png';
-      } else if (count >= 6) {
+      } else if (count <= 7) {
         item = '가방';
         description =
           '수납력 짱짱! 그 와중에 패션을 포기할 수 없다.. \n' +
@@ -58,7 +58,7 @@ export const result = ({ answer }) =>
           '심플하고 간결한 가방 로고가 아주 인상적이네요! 확 튀지는 않지만, 센스있는 룩을 완성시킬 가방을 선택한 당신.. \n' +
           '잠재력을 가진 패션피플!!';
         image = '4-echobag.png';
-      } else if (count >= 3) {
+      } else if (count <= 9) {
         item = '핸드폰케이스';
         description =
           '평범함은 거부한다! 나만의 개성을 표현하는 커스터마이징 케이스! \n' +
@@ -66,7 +66,7 @@ export const result = ({ answer }) =>
           '주변을 돌보는 것을 좋아하는 슈아는 종종 숭냥이를 챙기곤 한답니다. \n' +
           '슈아의 취향으로 가득한 케이스로 슈아를 표현해보자구요~!';
         image = '5-phonecase.png';
-      } else if (count >= 2) {
+      } else if (count <= 11) {
         item = '마스크';
         description =
           '코로나 시기에 꼭 필요한 마스크ㅠㅠ\n' +
@@ -75,7 +75,7 @@ export const result = ({ answer }) =>
           '나만을 위한 패션도 좋지만, 주변인들을 위한 따듯한 마음이 돋보이는 패션,,,\n' +
           '이미 당신은 사람을 아우르는 숨은 패션고수일지도..!!';
         image = '6-mask.png';
-      } else if (count >= 1) {
+      } else if (count <= 13) {
         item = '비니';
         description =
           'hey mama,, 네? 어디선가 노래가 들리신다구요,,? \n' +
@@ -83,7 +83,7 @@ export const result = ({ answer }) =>
           '아, 옷이 평범해서 자신감이 떨어진다구요? 걱정마세요. \n' +
           '이 파란색 비니가 슈아의 패션에 힙함을 더해줄거니까요.';
         image = '7-beanie.png';
-      } else if (count >= 0) {
+      } else if (count <= 15) {
         item = '스카프';
         description =
           '날씨가 많이 쌀쌀해졌어요!!\n' +
