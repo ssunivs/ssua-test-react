@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getResult, resetAnswer } from '../modules/question';
+import { getResult } from '../modules/question';
 import ResultLoading from '../components/result/ResultLoading';
 import ResultView, { ResultViewBlock } from '../components/result/ResultView';
 
@@ -24,7 +24,6 @@ const ResultContainer = ({ history }) => {
 
   useEffect(() => {
     dispatch(getResult({ answer }));
-    dispatch(resetAnswer());
     localStorage.removeItem('answer');
   }, [dispatch, answer]);
 
