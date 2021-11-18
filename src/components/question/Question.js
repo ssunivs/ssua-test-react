@@ -45,7 +45,7 @@ const Question = ({ idx, text, answer, generateAnswerHandler }) => {
   return (
     <>
       <StyledQuestion>
-        Q{idx}.<span>{text}</span>
+        Q. <span>{text}</span>
       </StyledQuestion>
       <StyledAnswerBlock>
         <StyledButton
