@@ -27,7 +27,10 @@ const loadStoreFromLocalStorage = () => {
 };
 
 sagaMiddleware.run(rootSaga);
-loadStoreFromLocalStorage();
+// eslint-disable-next-line no-restricted-globals
+if (location.pathname.includes('/question')) {
+  loadStoreFromLocalStorage();
+}
 
 ReactDOM.render(
   <React.StrictMode>
