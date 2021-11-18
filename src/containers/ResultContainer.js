@@ -13,7 +13,7 @@ const ResultContainer = ({ history }) => {
     answer: question.answer,
   }));
 
-  const { title, description } = result;
+  const { item, description, image } = result;
 
   const onRetry = (e) => {
     e.preventDefault();
@@ -38,7 +38,12 @@ const ResultContainer = ({ history }) => {
       {loading ? (
         <ResultLoading />
       ) : (
-        <ResultView title={title} description={description} onRetry={onRetry} />
+        <ResultView
+          item={item}
+          description={description}
+          image={image}
+          onRetry={onRetry}
+        />
       )}
     </ResultViewBlock>
   );

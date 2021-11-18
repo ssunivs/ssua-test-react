@@ -67,9 +67,12 @@ const question = handleActions(
       ...state,
       questionError: error,
     }),
-    [GET_RESULT_SUCCESS]: (state, { payload: { title, description } }) => ({
+    [GET_RESULT_SUCCESS]: (
+      state,
+      { payload: { item, description, image } },
+    ) => ({
       ...state,
-      result: { title, description },
+      result: { item, description, image },
     }),
     [GET_RESULT_FAILURE]: (state, { payload: error }) => ({
       ...state,

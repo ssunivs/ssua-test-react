@@ -13,7 +13,7 @@ const StyledResultImageWrapper = styled.div`
   width: 400px;
   height: 400px;
   border: 4px solid #265499;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,12 +27,17 @@ const StyledResultImageWrapper = styled.div`
 
 const StyledResultTextWrapper = styled.div`
   margin: 2rem auto 1rem;
+  padding: 1rem 0.5rem;
   width: 400px;
-  border: 4px solid #265499;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #edf1f7;
   text-align: center;
   font-size: 1.5rem;
+
+  p {
+    margin: 0 0 0.5rem;
+    font-weight: bold;
+  }
 
   .title {
     color: #2d66bc;
@@ -45,6 +50,7 @@ const StyledResultTextWrapper = styled.div`
 
   span {
     display: block;
+    word-break: keep-all;
   }
 `;
 
@@ -55,26 +61,20 @@ const StyledButton = styled(Button)`
   padding: 20px;
 `;
 
-const ResultView = ({ title, description, onRetry }) => {
+const ResultView = ({ item, description, image, onRetry }) => {
   return (
     <>
       <Illustration src="/images/result-main.png" />
       <StyledResultImageWrapper>
-        <Illustration src="/images/result/9-crown.png" />
+        <Illustration src={`/images/result/${image}`} />
       </StyledResultImageWrapper>
       <StyledResultTextWrapper>
-        <p className="title">Level 10. 패션왕관</p>
+        <p className="title">{item}</p>
         <p className="sub-title">hoxy, 당신은 패션왕?</p>
-        {(
-          '슈아에게 딱 어울리는,,,\n' +
-          '당신의 패션센스 믿음직 어쩌구,,,\n' +
-          '나중에 텍스트 전달하겠습니다,,,\n' +
-          '기획팀 도와주세요,,,'
-        )
-          .split('\n')
-          .map((iter) => (
-            <span>{iter}</span>
-          ))}
+        &nbsp;
+        {description.split('\n').map((iter) => (
+          <span>{iter}</span>
+        ))}
       </StyledResultTextWrapper>
       <StyledButton href="https://www.instagram.com/snvs.official">
         슈아에게 컨펌받기
