@@ -19,14 +19,13 @@ const ResultContainer = ({ history }) => {
     e.preventDefault();
     e.stopPropagation();
 
-    localStorage.removeItem('answer');
-    dispatch(resetAnswer());
-
     history.push('/');
   };
 
   useEffect(() => {
     dispatch(getResult({ answer }));
+    dispatch(resetAnswer());
+    localStorage.removeItem('answer');
   }, [dispatch, answer]);
 
   useEffect(() => {
