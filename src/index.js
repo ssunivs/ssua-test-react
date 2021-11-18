@@ -28,7 +28,7 @@ const loadStoreFromLocalStorage = () => {
 
 sagaMiddleware.run(rootSaga);
 // eslint-disable-next-line no-restricted-globals
-if (location.pathname.includes('/question')) {
+if (location.pathname !== '/') {
   loadStoreFromLocalStorage();
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getResult } from '../modules/question';
+import { getResult, resetAnswer } from '../modules/question';
 import ResultLoading from '../components/result/ResultLoading';
 import ResultView, { ResultViewBlock } from '../components/result/ResultView';
 
@@ -19,12 +19,14 @@ const ResultContainer = ({ history }) => {
     e.preventDefault();
     e.stopPropagation();
 
+    dispatch(resetAnswer());
+    localStorage.removeItem('answer');
+
     history.push('/');
   };
 
   useEffect(() => {
     dispatch(getResult({ answer }));
-    localStorage.removeItem('answer');
   }, [dispatch, answer]);
 
   useEffect(() => {
