@@ -31,7 +31,7 @@ const ProgressBar = styled.div`
   height: 1rem;
   border-radius: 0.25rem;
 
-  ::before {
+  ::after {
     content: '';
     background-image: url('/images/progress-ssua.png');
     width: 40px;
