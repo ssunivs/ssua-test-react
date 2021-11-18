@@ -23,11 +23,19 @@ const StyledResultImageWrapper = styled.div`
   img {
     margin: auto;
     display: block;
+    max-width: 300px;
+    max-height: 300px;
   }
 
   @media (${bp.small}) {
     width: 400px;
     height: 400px;
+
+    picture,
+    img {
+      max-width: 400px;
+      max-height: 400px;
+    }
   }
 `;
 
