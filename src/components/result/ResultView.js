@@ -79,7 +79,7 @@ const StyledButton = styled(Button)`
   padding: 20px;
 `;
 
-const ResultView = ({ item, description, image, onRetry }) => {
+const ResultView = ({ level, item, description, image, onRetry }) => {
   return (
     <>
       <Illustration src="/images/result-main.png" />
@@ -87,7 +87,9 @@ const ResultView = ({ item, description, image, onRetry }) => {
         <Illustration src={`/images/result/${image}`} />
       </StyledResultImageWrapper>
       <StyledResultTextWrapper>
-        <p className="title">{item}</p>
+        <p className="title">
+          Level {level}. {item}
+        </p>
         <p className="sub-title">hoxy, 당신은 패션왕?</p>
         &nbsp;
         {description.split('\n').map((iter) => (

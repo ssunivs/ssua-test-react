@@ -69,10 +69,10 @@ const question = handleActions(
     }),
     [GET_RESULT_SUCCESS]: (
       state,
-      { payload: { item, description, image } },
+      { payload: { level, item, description, image } },
     ) => ({
       ...state,
-      result: { item, description, image },
+      result: { level, item, description, image },
     }),
     [GET_RESULT_FAILURE]: (state, { payload: error }) => ({
       ...state,
