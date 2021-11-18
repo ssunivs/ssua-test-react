@@ -94,7 +94,10 @@ const ResultView = ({ item, description, image, onRetry }) => {
           <span>{iter}</span>
         ))}
       </StyledResultTextWrapper>
-      <StyledButton href="https://www.instagram.com/snvs.official">
+      <StyledButton
+        href="https://www.instagram.com/snvs.official"
+        target="_blank"
+      >
         슈아에게 컨펌받기
       </StyledButton>
       <StyledButton onClick={onRetry}>다시하기</StyledButton>
