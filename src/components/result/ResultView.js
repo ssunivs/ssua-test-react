@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Illustration from '../common/Illustration';
 import Button from '../common/Button';
+import * as bp from '../../lib/styles/BreakPoints';
 
 export const ResultViewBlock = styled.div`
   margin-top: 1rem;
@@ -10,8 +11,8 @@ export const ResultViewBlock = styled.div`
 
 const StyledResultImageWrapper = styled.div`
   margin: 2rem auto 1rem;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   border: 4px solid #265499;
   border-radius: 10px;
   display: flex;
@@ -23,16 +24,20 @@ const StyledResultImageWrapper = styled.div`
     margin: auto;
     display: block;
   }
+
+  @media (${bp.small}) {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 const StyledResultTextWrapper = styled.div`
   margin: 2rem auto 1rem;
   padding: 1rem 0.5rem;
-  width: 400px;
+  width: 300px;
   border-radius: 10px;
   background-color: #edf1f7;
   text-align: center;
-  font-size: 1.5rem;
 
   p {
     margin: 0 0 0.5rem;
@@ -51,6 +56,11 @@ const StyledResultTextWrapper = styled.div`
   span {
     display: block;
     word-break: keep-all;
+  }
+
+  @media (${bp.small}) {
+    width: 400px;
+    font-size: 1.2rem;
   }
 `;
 
